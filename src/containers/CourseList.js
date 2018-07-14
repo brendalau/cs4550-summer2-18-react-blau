@@ -34,7 +34,7 @@ export default class CourseList extends React.Component {
                         </tr>
                         <tr>
                             <th className="spaced">Title</th>
-                            <th>Owned By</th>
+                            <th>Instructor</th>
                             <th>Date Last Mod.</th>
                             <th>Time Last Mod.</th>
                             <th>&nbsp;</th>
