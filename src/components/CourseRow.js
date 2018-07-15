@@ -17,7 +17,7 @@ export default class CourseRow extends React.Component {
                 <td className="wbdv-owned-by">Me</td>
                 <td className="wbdv-last-mod-date">Jul 12, 2018</td>
                 <td className="wbdv-last-mod-time">6:45pm</td>
-                <td><i id="wbdv-remove" className="fa-2x fa fa-times wbdv-remove"></i></td>
+                <td><i id="wbdv-remove" className="fa-lg fa fa-times wbdv-remove"></i></td>
             </tr>
         );
     }

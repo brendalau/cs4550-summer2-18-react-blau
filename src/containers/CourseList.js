@@ -16,31 +16,30 @@ export default class CourseList extends React.Component {
 
     render() {
         return(
-            <div>
-                <table border="0">
+            <div className="wbdv-course-list">
+                <table border="0" className="wbdv-course-table">
                     <thead>
-                        <tr>
-                            <th colSpan="5">New Course Title</th>
-                        </tr>
-                        <tr id="newCourseTitleFldRow">
+                        <tr className="wbdv-new-course-row">
                             <td colSpan="4">
-                            <input id="newCourseTitleFld"
+                            <input id="newCourseFld"
                                    className="form-control"
                                    placeholder="New Course Title"/>
                             </td>
                             <td>
-                            <i className="fa-2x fa fa-plus wbdv-create"></i>
+                            <i className="fa-lg fa fa-plus wbdv-create"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <th className="spaced">Title</th>
-                            <th>Instructor</th>
-                            <th>Date Last Mod.</th>
-                            <th>Time Last Mod.</th>
-                            <th>&nbsp;</th>
+                        <tr className="wbdv-course-header-row">
+                            <td className="spaced">Title</td>
+                            <td>Instructor</td>
+                            <td>Date Last Mod.</td>
+                            <td>Time Last Mod.</td>
+                            <td>&nbsp;</td>
                         </tr>
                     </thead>
                     <tbody>
+                        {this.renderCourseRows()}
+                        {this.renderCourseRows()}
                         {this.renderCourseRows()}
                     </tbody>
                 </table>
