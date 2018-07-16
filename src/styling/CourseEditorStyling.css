@@ -1,0 +1,92 @@
+.wbdv-new-module {
+    background-color: #d9d6dc;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+#wbdv-new-module-fld, .wbdv-create {
+    display: inline;
+}
+
+li.nav-item>a, li.nav-item>i {
+    display: inline-block;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+}
+
+.list-group-item:last-child {
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+
+li.list-group-item {
+    margin: auto;
+    border: 1px solid #e6e6e6;
+}
+
+.wbdv-edit {
+    padding-right: 16px;
+    display: inline;
+}
+
+.wbdv-remove {
+    display: inline;
+    float: right;
+}
+
+.nav-tabs a.nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #f1f1f1;
+}
+
+li.nav-item.active {
+    border-bottom: 4px solid #999999;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: auto;
+}
+
+.wbdv-module-list {
+    padding: 30px 20px;
+}
+
+.wbdv-course-editor-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+.col-4 {
+    background-color: #563f46;
+    height: 100%;
+    position: absolute;
+}
+
+a.nav-link:hover {
+    border: none;
+}
+
+ul.nav-tabs {
+    border-bottom: 4px solid #cccccc;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}
+
+header.wbdv-course-editor-header>h3 {
+    margin-left: 50px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.wbdv-course-editor-body {
+    padding-top: 30px;
+}
