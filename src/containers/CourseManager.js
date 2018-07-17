@@ -1,7 +1,10 @@
 import React from 'react';
 import CourseList from './CourseList';
+import CourseEditor from "./CourseEditor";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../styling/CourseManagerStyling.css';
+
 
 
 export default class CourseManager extends React.Component {
@@ -9,23 +12,19 @@ export default class CourseManager extends React.Component {
         super();
     }
 
-    renderCourseList() {
-        return(
-            <CourseList/>
-        );
-    }
-
     render() {
         return(
-            <div>
-                <header class="wbdv-course-manager-header">
-                    <h3>Course Manager</h3>
-                </header>
+            <Router>
+                <div>
+                    <Route path="/courses"
+                           component={CourseList}>
+                    </Route>
 
-                <body className="container-fluid wbdv-course-manager-body">
-                    {this.renderCourseList()}
-                </body>
-            </div>
+                    <Route path="/course/:courseId"
+                           component={CourseEditor}>
+                    </Route>
+                </div>
+            </Router>
         );
     }
 }

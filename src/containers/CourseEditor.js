@@ -7,22 +7,33 @@ import '../styling/CourseEditorStyling.css';
 export default class CourseEditor extends React.Component {
     constructor() {
         super();
+        this.selectCourse = this.selectCourse.bind(this);
+        this.state = {courseId: ''};
     }
+
+    componentDidMount() {
+        this.selectCourse(this.props.match.params.courseId);
+    }
+
+    selectCourse(courseId) {
+        this.setState({courseId: courseId});
+    }
+
 
     render() {
         return(
-            <div>
+            <div className="wbdv-body">
                 <header className="wbdv-course-editor-header">
-                    <h3>Course Editor</h3>
+                    <h3>Course {this.state.courseId}</h3>
                 </header>
 
                 <aside className="col-4">
                     <ModuleList/>
                 </aside>
 
-                <body className="wbdv-course-editor-body col-8 float-right">
+                <div className="col-8 float-right">
                     <ModuleEditor/>
-                </body>
+                </div>
             </div>
         );
     }

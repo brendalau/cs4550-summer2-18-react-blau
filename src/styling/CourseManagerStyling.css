@@ -30,6 +30,7 @@ header.wbdv-course-manager-header>h3 {
 }
 
 body {
+    height: 100%;
     background-color: #f1f1f1;
 }
 
@@ -40,12 +41,9 @@ body {
 
 .wbdv-course-list {
     margin: auto;
+    margin-top: 30px;
     background-color: white;
     box-shadow: 0px 2px 4px 0px #e6e6e6;
-}
-
-.wbdv-course-manager-body {
-    padding-top: 30px;
 }
 
 .spaced {

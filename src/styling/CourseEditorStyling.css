@@ -2,7 +2,7 @@
     background-color: #d9d6dc;
 }
 
-body {
+.wbdv-body {
     background-color: #f1f1f1;
 }
 
@@ -37,10 +37,6 @@ li.list-group-item {
 .wbdv-remove {
     display: inline;
     float: right;
-}
-
-.nav-tabs a.nav-link.active, .nav-tabs .nav-item.show .nav-link {
-    background-color: #f1f1f1;
 }
 
 li.nav-item.active {
@@ -87,6 +83,6 @@ header.wbdv-course-editor-header>h3 {
     padding-bottom: 15px;
 }
 
-.wbdv-course-editor-body {
-    padding-top: 30px;
+.col-8 {
+    padding: 30px 40px;
 }

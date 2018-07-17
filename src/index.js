@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import ModuleListItem from "./components/ModuleListItem";
 
 ReactDOM.render(
-    <CourseEditor/>,
+    <CourseManager/>,
     document.getElementById('root')
 );
 
