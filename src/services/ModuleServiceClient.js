@@ -32,7 +32,7 @@ export default class ModuleServiceClient {
     }
 
     findAllModulesForCourse(courseId) {
-        return fetch(COURSE_API_URL + '/' + courseId + 'module')
+        return fetch(COURSE_API_URL + '/' + courseId + '/module')
             .then(function(response) {
                 return response.json();
             });
@@ -40,7 +40,7 @@ export default class ModuleServiceClient {
 
     createModule(courseId, module) {
         return fetch(
-            COURSE_API_URL + '/' + courseId + 'module', {
+            COURSE_API_URL + '/' + courseId + '/module', {
                 body: JSON.stringify(module),
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'}

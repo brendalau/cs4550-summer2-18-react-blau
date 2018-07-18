@@ -1,6 +1,7 @@
 import React from 'react';
 import ModuleList from './ModuleList';
 import ModuleEditor from "./ModuleEditor";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import CourseServiceClient from "../services/CourseServiceClient";
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../styling/CourseEditorStyling.css';
@@ -34,9 +35,13 @@ export default class CourseEditor extends React.Component {
                     <ModuleList courseId={this.state.courseId}/>
                 </aside>
 
-                <div className="col-8 float-right">
-                    <ModuleEditor/>
-                </div>
+                <Router>
+                    <Route path="/course/;courseId/module/:moduleId">
+                        <div className="col-8 float-right">
+                            <ModuleEditor/>
+                        </div>
+                    </Route>
+                </Router>
             </div>
         );
     }

@@ -62,4 +62,6 @@ td>i {
     padding-right: 15px;
 }
 
-tr:hover.wbdv-course-row {background-color: #f2f2f2;}
+tr:hover.wbdv-course-row {
+    background-color: #f2f2f2;
+}

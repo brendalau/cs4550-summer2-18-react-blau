@@ -31,7 +31,6 @@ li.list-group-item {
 
 .wbdv-edit {
     padding-right: 16px;
-    display: inline;
 }
 
 .wbdv-remove {
@@ -98,5 +97,10 @@ header.wbdv-course-editor-header>h3, header.wbdv-course-editor-header>i {
 }
 
 li>i:hover, header>i:hover {
+    cursor: pointer;
+}
+
+.wbdv-module-list-item:hover, .wbdv-module-list-item:focus {
+    background-color: #f2f2f2;
     cursor: pointer;
 }
