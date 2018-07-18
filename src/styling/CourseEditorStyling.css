@@ -7,7 +7,7 @@
 }
 
 #wbdv-new-module-fld, .wbdv-create {
-    display: inline;
+    display: inline-block;
 }
 
 li.nav-item>a, li.nav-item>i {
@@ -47,6 +47,11 @@ li.nav-item.active {
     margin-bottom: auto;
 }
 
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: transparent;
+    padding-right: 10px;
+}
+
 .wbdv-module-list {
     padding: 30px 20px;
 }
@@ -81,8 +86,17 @@ header.wbdv-course-editor-header>h3 {
     margin-bottom: 0px;
     padding-top: 20px;
     padding-bottom: 15px;
+    padding-right: 10px;
+}
+
+header.wbdv-course-editor-header>h3, header.wbdv-course-editor-header>i {
+    display: inline-block;
 }
 
 .col-8 {
     padding: 30px 40px;
+}
+
+li>i:hover, header>i:hover {
+    cursor: pointer;
 }

@@ -10,8 +10,10 @@ export default class ModuleListItem extends React.Component {
     render() {
         return (
             <li className="list-group-item">
-                Module 1 - jQuery
-                <i id="wbdv-remove" className="fa-lg fa fa-times wbdv-remove"></i>
+                {this.props.module.title}
+                <i id="wbdv-remove"
+                   className="fa-lg fa fa-times wbdv-remove"
+                   onClick={() => {this.props.delete(this.props.module.id)}}></i>
             </li>
         );
     }

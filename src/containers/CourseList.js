@@ -7,8 +7,8 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 export default class CourseList extends React.Component {
     constructor() {
         super();
+        this.state = {course: {title: 'New Course Title'}, courses: []};
         this.courseServiceClient = CourseServiceClient.instance;
-        this.state = {courses: []};
         this.titleChanged = this.titleChanged.bind(this);
         this.createCourse = this.createCourse.bind(this);
         this.deleteCourse = this.deleteCourse.bind(this);

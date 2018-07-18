@@ -12,13 +12,20 @@ export default class CourseRow extends React.Component {
         return(
             <tr className="wbdv-course-row">
                 <td className="wbdv-course-title spaced">
+                    <i className="fa-lg fa fa-folder wbdv-folder"></i>
                     <Link to={`/course/${this.props.course.id}`}>
-                        <i className="fa-lg fa fa-folder wbdv-folder"></i>{this.props.course.title}
+                        {this.props.course.title}
                     </Link>
                 </td>
-                <td className="wbdv-instructor">{this.props.course.instructor}</td>
-                <td className="wbdv-date-last-mod">{this.props.course.modified.substring(0, 10)}</td>
-                <td className="wbdv-time-last-mod">{this.props.course.created.substring(0, 10)}</td>
+                <td className="wbdv-instructor">
+                    {this.props.course.instructor}
+                    </td>
+                <td className="wbdv-date-modified">
+                    {this.props.course.modified.substring(0, 10)}
+                    </td>
+                <td className="wbdv-date-created">
+                    {this.props.course.created.substring(0, 10)}
+                    </td>
                 <td><i id="wbdv-remove"
                        className="fa-lg fa fa-times wbdv-remove"
                        onClick={() => {this.props.delete(this.props.course.id)}}></i>

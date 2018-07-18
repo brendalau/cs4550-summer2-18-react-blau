@@ -1,7 +1,8 @@
 let _singleton = Symbol();
 const COURSE_API_URL = 'http://localhost:8080/api/course';
+const MODULE_API_URL = 'http://localhost:8080/api/module';
 
-export default class CourseServiceClient {
+export default class ModuleServiceClient {
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
             throw new Error('Cannot instantiate directly.');
@@ -9,13 +10,13 @@ export default class CourseServiceClient {
 
     static get instance() {
         if(!this[_singleton])
-            this[_singleton] = new CourseServiceClient(_singleton);
+            this[_singleton] = new ModuleServiceClient(_singleton);
         return this[_singleton]
     }
 
-    findAllCourses() {
+    findAllModules() {
         return fetch(
-            COURSE_API_URL, {
+            MODULE_API_URL, {
                 headers: {'Content-Type': 'application/json'}
             })
             .then(function(response) {
@@ -23,17 +24,24 @@ export default class CourseServiceClient {
             });
     }
 
-    findCourseById(courseId) {
-        return fetch(COURSE_API_URL + '/' + courseId)
+    findModuleById(moduleId) {
+        return fetch(MODULE_API_URL + '/' + moduleId)
             .then(function(response) {
                 return response.json();
             });
     }
 
-    createCourse(course) {
+    findAllModulesForCourse(courseId) {
+        return fetch(COURSE_API_URL + '/' + courseId + 'module')
+            .then(function(response) {
+                return response.json();
+            });
+    }
+
+    createModule(courseId, module) {
         return fetch(
-            COURSE_API_URL, {
-                body: JSON.stringify(course),
+            COURSE_API_URL + '/' + courseId + 'module', {
+                body: JSON.stringify(module),
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'}
             })
@@ -42,9 +50,9 @@ export default class CourseServiceClient {
             });
     }
 
-    deleteCourse(courseId) {
+    deleteModule(moduleId) {
         return fetch(
-            COURSE_API_URL + '/' + courseId, {
+            MODULE_API_URL + '/' + moduleId, {
                 method: 'DELETE',
             })
             .then(function(response) {
@@ -52,13 +60,13 @@ export default class CourseServiceClient {
             });
     }
 
-    updateCourse(courseId) {
+    updateModule(moduleId) {
         return fetch(
-            COURSE_API_URL + '/' + courseId, {
-                method: 'put',
-                body: JSON.stringify(courseId),
-                headers: {'content-type': 'application/json'}
-            });
+            MODULE_API_URL + '/' + moduleId, {
+                 method: 'PUT',
+                 body: JSON.stringify(moduleId),
+                 headers: {'content-type': 'application/json'}
+             });
     }
 }
 
