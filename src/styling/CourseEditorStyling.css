@@ -83,7 +83,6 @@ ul.nav-tabs {
 header.wbdv-course-editor-header>h3 {
     margin-left: 50px;
     margin-bottom: 0px;
-    padding-top: 20px;
     padding-bottom: 15px;
     padding-right: 10px;
 }
@@ -103,4 +102,15 @@ li>i:hover, header>i:hover {
 .wbdv-module-list-item:hover, .wbdv-module-list-item:focus {
     background-color: #f2f2f2;
     cursor: pointer;
+}
+
+.wbdv-new-lesson {
+    background-color: #d9d6dc;
+    margin-left: 20px;
+    height: 50%;
+}
+
+li.wbdv-new-lesson>i {
+    margin: auto;
+    padding: 10px;
 }

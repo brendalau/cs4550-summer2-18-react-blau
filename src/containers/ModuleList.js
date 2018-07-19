@@ -10,12 +10,12 @@ export default class ModuleList extends React.Component {
         this.state = {courseId: '', module: {title: 'New Module Title'}, modules: []};
         this.moduleServiceClient = ModuleServiceClient.instance;
         this.setCourseId = this.setCourseId.bind(this);
+        this.setModules = this.setModules.bind(this);
         this.titleChanged = this.titleChanged.bind(this);
         this.createModule = this.createModule.bind(this);
         this.deleteModule = this.deleteModule.bind(this);
         this.renderModuleListItems = this.renderModuleListItems.bind(this);
         this.findAllModules = this.findAllModules.bind(this);
-        this.setModules = this.setModules.bind(this);
     }
 
     setCourseId(courseId) {
@@ -23,16 +23,17 @@ export default class ModuleList extends React.Component {
     }
 
     setModules(modules) {
-        this.setState({modules: modules})
+        this.setState({modules: modules});
     }
 
     componentDidMount() {
+        this.setCourseId(this.props.courseId);
         this.findAllModules();
     }
 
     componentWillReceiveProps(newProps){
         this.setCourseId(newProps.courseId);
-        this.findAllModulesForCourse(newProps.courseId)
+        this.findAllModulesForCourse(newProps.courseId);
     }
 
     findAllModules() {
@@ -49,7 +50,10 @@ export default class ModuleList extends React.Component {
 
     renderModuleListItems() {
         let modules = this.state.modules.map((module) => {
-            return <ModuleListItem module={module} key={module.id} delete={this.deleteModule}/>;
+            return <ModuleListItem courseId={this.state.courseId}
+                                   module={module}
+                                   key={module.id}
+                                   delete={this.deleteModule}/>;
         });
 
         return modules;

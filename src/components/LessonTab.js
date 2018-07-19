@@ -10,7 +10,7 @@ export default class LessonTab extends React.Component {
     render() {
         return(
             <li className="nav-item active">
-                <a className="nav-link active" href="#">Lesson 1</a>
+                <a className="nav-link active" href="#">{this.props.lesson.title}</a>
                 <i id="wbdv-edit" className="fa-lg fa fa-pencil wbdv-edit"></i>
             </li>
         );
