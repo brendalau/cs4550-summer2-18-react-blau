@@ -52,10 +52,10 @@ export default class CourseServiceClient {
             });
     }
 
-    updateCourse(courseId) {
+    updateCourse(courseId, newCourseId) {
         return fetch(
             COURSE_API_URL + '/' + courseId, {
-                method: 'put',
+                method: 'PUT',
                 body: JSON.stringify(courseId),
                 headers: {'content-type': 'application/json'}
             });

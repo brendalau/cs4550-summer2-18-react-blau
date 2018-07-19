@@ -7,7 +7,10 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 export default class LessonTabs extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {courseId: '', moduleId: '', lesson: {title: 'New Lesson Title'}, lessons: []};
+        this.state = {courseId: '',
+                      moduleId: '',
+                      activeLesson: '',
+                      lessons: []};
         this.lessonServiceClient = LessonServiceClient.instance;
         this.setCourseId = this.setCourseId.bind(this);
         this.setModuleId = this.setModuleId.bind(this);
@@ -18,6 +21,11 @@ export default class LessonTabs extends React.Component {
         this.renderLessonTabs = this.renderLessonTabs.bind(this);
         this.findAllLessons = this.findAllLessons.bind(this);
         this.findAllLessonsForModule = this.findAllLessonsForModule.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(lesson) {
+        this.setState({activeLesson: lesson})
     }
 
     setCourseId(courseId) {
@@ -55,7 +63,11 @@ export default class LessonTabs extends React.Component {
 
     renderLessonTabs() {
         let lessons = this.state.lessons.map((lesson) => {
-            return <LessonTab lesson={lesson} key={lesson.id} delete={this.deleteLesson}/>;
+            return <LessonTab lesson={lesson}
+                              key={lesson.id}
+                              delete={this.deleteLesson}
+                              isActive={this.state.activeLesson===lesson}
+                              onClick={this.handleClick}/>;
         });
 
         return lessons;

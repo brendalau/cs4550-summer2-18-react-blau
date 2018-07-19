@@ -38,7 +38,7 @@ export default class ModuleEditor extends React.Component {
 
     render() {
         return(
-            <div className="col-8 float-right">
+            <div className="col-sm-8">
                 {this.renderLessonTabs()}
             </div>
         );

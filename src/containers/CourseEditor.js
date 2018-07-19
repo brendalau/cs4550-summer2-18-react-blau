@@ -16,6 +16,7 @@ export default class CourseEditor extends React.Component {
         this.setCourseId = this.setCourseId.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleHide = this.handleHide.bind(this);
+        // this.updateCourse = this.updateCourse.bind(this);
     }
 
     componentDidMount() {
@@ -35,30 +36,16 @@ export default class CourseEditor extends React.Component {
         this.setState({show: false});
     }
 
-    updateCourse(event) {
-        this.setState({courseId: event.target.value});
-
-        this.courseServiceClient.updateCourse(this.state)
-    }
+    // updateCourse(event) {
+    //     this.setState({courseId: event.target.value});
+    //
+    //     this.courseServiceClient.updateCourse(this.state.courseId, event.target.value)
+    //         .then(this.render);
+    // }
 
     render() {
         return(
-            <div className="wbdv-body">
-                <header className="wbdv-course-editor-header">
-                    <h3>Course {this.props.match.params.courseId}</h3>
-                    <i id="wbdv-edit"
-                       className="fa-lg fa fa-pencil wbdv-edit"
-                       onClick={this.handleShow}></i>
-                </header>
-
-                <aside className="col-4">
-                    <ModuleList courseId={this.state.courseId}/>
-                </aside>
-
-                <Router>
-                    <Route path="/course/:courseId/module/:moduleId" component={ModuleEditor}/>
-                </Router>
-
+            <div>
                 <div>
                     <Modal show={this.state.show}
                            onHide={this.handleHide}
@@ -73,15 +60,28 @@ export default class CourseEditor extends React.Component {
                             <input id="wbdv-update-course-title-fld"
                                    className="form-control"
                                    placeholder={this.props.match.params.courseId}
-                                   onChange={this.updateCourse}/>
+                                // onChange={this.updateCourse}
+                            />
+                            <i className="fa-lg fa fa-check wbdv-update"></i>
                         </Modal.Body>
-
-                        <Modal.Footer>
-                            <Button onClick={this.handleHide}>Yes, I'm sure</Button>
-                            <Button bsStyle="primary"
-                                    onClick={this.handleHide}>Cancel</Button>
-                        </Modal.Footer>
                     </Modal>
+                </div>
+
+                <div className="wbdv-body">
+                    <header className="wbdv-course-editor-header">
+                        <h3>Course {this.props.match.params.courseId}</h3>
+                        <i id="wbdv-edit"
+                           className="fa-lg fa fa-pencil wbdv-edit"
+                           onClick={this.handleShow}></i>
+                    </header>
+
+                    <aside className="col-sm-4">
+                        <ModuleList courseId={this.state.courseId}/>
+                    </aside>
+
+                    <Router>
+                        <Route path="/course/:courseId/module/:moduleId" component={ModuleEditor}/>
+                    </Router>
                 </div>
             </div>
         );
