@@ -2,9 +2,9 @@ import React from 'react';
 import LessonTab from '../components/LessonTab';
 import LessonServiceClient from "../services/LessonServiceClient";
 import { Modal } from 'react-bootstrap';
+import Button from "react-bootstrap/es/Button";
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
-import Button from "react-bootstrap/es/Button";
 
 export default class LessonTabs extends React.Component {
     constructor(props) {

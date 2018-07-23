@@ -6,7 +6,6 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 export default class CourseRow extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {course: {modified: ''}};
     }
 

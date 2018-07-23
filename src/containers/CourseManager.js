@@ -5,8 +5,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../styling/CourseManagerStyling.css';
 
-
-
 export default class CourseManager extends React.Component {
     constructor() {
         super();
