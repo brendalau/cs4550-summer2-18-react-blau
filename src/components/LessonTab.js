@@ -1,26 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 
 export default class LessonTab extends React.Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick() {
-        this.props.onClick(this.props.lesson);
     }
 
     render() {
         return(
-            <li className={'nav-item ' + this.props.isActive}>
-                <a className={'nav-item' + this.props.isActive ? 'active' : ''}
-                   href="#"
-                   onClick={this.handleClick}>
+            <li className={'nav-item'}>
+                <NavLink className={'nav-item'}
+                         to={`/course/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lesson.id}`}>
                     {this.props.lesson.title}
-                </a>
+                </NavLink>
                 <i className="fa-lg fa fa-times wbdv-remove"
                    onClick={() => {this.props.delete(this.props.lesson.id)}}></i>
             </li>

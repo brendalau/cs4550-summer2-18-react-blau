@@ -11,7 +11,6 @@ export default class LessonTabs extends React.Component {
         super(props);
         this.state = {courseId: '',
                       moduleId: '',
-                      activeLesson: '',
                       lessonIdToDelete: '',
                       newLesson: {title: "New Lesson Title"},
                       lessons: [],
@@ -27,15 +26,10 @@ export default class LessonTabs extends React.Component {
         this.renderLessonTabs = this.renderLessonTabs.bind(this);
         this.findAllLessons = this.findAllLessons.bind(this);
         this.findAllLessonsForModule = this.findAllLessonsForModule.bind(this);
-        this.handleClick = this.handleClick.bind(this);
         this.handleShowCreate = this.handleShowCreate.bind(this);
         this.handleHideCreate = this.handleHideCreate.bind(this);
         this.handleShowDelete = this.handleShowDelete.bind(this);
         this.handleHideDelete = this.handleHideDelete.bind(this);
-    }
-
-    handleClick(lesson) {
-        this.setState({activeLesson: lesson})
     }
 
     handleShowCreate() {
@@ -93,8 +87,9 @@ export default class LessonTabs extends React.Component {
             return <LessonTab lesson={lesson}
                               key={lesson.id}
                               delete={this.handleShowDelete}
-                              isActive={this.state.activeLesson===lesson}
-                              onClick={this.handleClick}/>;
+                              onClick={this.handleClick}
+                              courseId={this.props.courseId}
+                              moduleId={this.props.moduleId}/>;
         });
 
         return lessons;

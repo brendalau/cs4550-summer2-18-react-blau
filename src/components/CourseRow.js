@@ -10,18 +10,12 @@ export default class CourseRow extends React.Component {
         this.state = {course: {modified: ''}};
     }
 
-    updateModified() {
-        this.setState({course: {modified: Date.now()}});
-        this.props.onClick(this.props.course.id, this.state.course);
-    }
-
     render() {
         return(
             <tr className="wbdv-course-row">
                 <td className="wbdv-course-title spaced">
                     <i className="fa-lg fa fa-folder wbdv-folder"></i>
-                    <Link to={`/course/${this.props.course.id}`}
-                          onClick={() => {this.updateModified}}>
+                    <Link to={`/course/${this.props.course.id}`}>
                         {this.props.course.title}
                     </Link>
                 </td>
