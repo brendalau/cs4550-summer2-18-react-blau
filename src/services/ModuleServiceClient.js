@@ -1,6 +1,6 @@
 let _singleton = Symbol();
-const COURSE_API_URL = 'https://cs4550-summer2-18-react-blau.herokuapp.com//api/course';
-const MODULE_API_URL = 'https://cs4550-summer2-18-react-blau.herokuapp.com//api/module';
+const COURSE_API_URL = 'https://cs4550-summer2-18-sprngbt-blau.herokuapp.com/api/course';
+const MODULE_API_URL = 'https://cs4550-summer2-18-sprngbt-blau.herokuapp.com/api/module';
 
 export default class ModuleServiceClient {
     constructor(singletonToken) {
