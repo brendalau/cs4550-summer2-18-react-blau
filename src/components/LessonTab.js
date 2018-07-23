@@ -20,7 +20,8 @@ export default class LessonTab extends React.Component {
                    onClick={this.handleClick}>
                     {this.props.lesson.title}
                 </a>
-                <i id="wbdv-edit" className="fa-lg fa fa-pencil wbdv-edit"></i>
+                <i className="fa-lg fa fa-times wbdv-remove"
+                   onClick={() => {this.props.delete(this.props.lesson.id)}}></i>
             </li>
         );
     }

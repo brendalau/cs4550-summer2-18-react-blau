@@ -16,8 +16,7 @@ export default class ModuleListItem extends React.Component {
                 <Link to={`/course/${this.props.courseId}/module/${this.props.module.id}`}>
                     {this.props.module.title}
                 </Link>
-                <i id="wbdv-remove"
-                   className="fa-lg fa fa-times wbdv-remove"
+                <i className="fa-lg fa fa-times wbdv-remove"
                    onClick={() => {this.props.delete(this.props.module.id)}}></i>
             </li>
         );

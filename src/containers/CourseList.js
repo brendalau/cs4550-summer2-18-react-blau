@@ -7,13 +7,15 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 export default class CourseList extends React.Component {
     constructor() {
         super();
-        this.state = {course: {title: 'New Course Title'}, courses: []};
+        this.state = {course: {title: 'New Course Title'},
+                      courses: []};
         this.courseServiceClient = CourseServiceClient.instance;
         this.titleChanged = this.titleChanged.bind(this);
         this.createCourse = this.createCourse.bind(this);
         this.deleteCourse = this.deleteCourse.bind(this);
         this.renderCourseRows = this.renderCourseRows.bind(this);
         this.findAllCourses = this.findAllCourses.bind(this);
+        this.updateCourse = this.updateCourse.bind(this);
     }
 
     componentDidMount() {
@@ -29,7 +31,10 @@ export default class CourseList extends React.Component {
 
     renderCourseRows() {
         let courses = this.state.courses.map((course) => {
-            return <CourseRow course={course} key={course.id} delete={this.deleteCourse}/>;
+            return <CourseRow course={course}
+                              key={course.id}
+                              delete={this.deleteCourse}
+                              onClick={() => {this.updateCourse}}/>;
         });
 
         return courses;
@@ -47,6 +52,10 @@ export default class CourseList extends React.Component {
     deleteCourse(courseId) {
         this.courseServiceClient.deleteCourse(courseId)
             .then(() => {this.findAllCourses();});
+    }
+
+    updateCourse(courseId, course) {
+        this.courseServiceClient.updateCourse(courseId, course);
     }
 
     render() {
