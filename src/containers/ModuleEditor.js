@@ -9,6 +9,7 @@ export default class ModuleEditor extends React.Component {
         this.state = {courseId: '', moduleId: ''};
         this.setCourseId = this.setCourseId.bind(this);
         this.setModuleId = this.setModuleId.bind(this);
+        this.renderLessonTabs = this.renderLessonTabs.bind(this);
     }
 
     setCourseId(courseId) {

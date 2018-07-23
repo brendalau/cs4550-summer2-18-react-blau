@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 
@@ -15,7 +16,7 @@ export default class LessonTab extends React.Component {
     render() {
         return(
             <li className={'nav-item ' + this.props.isActive}>
-                <a className={'nav-link ' + this.props.isActive ? 'active' : ''}
+                <a className={'nav-item' + this.props.isActive ? 'active' : ''}
                    href="#"
                    onClick={this.handleClick}>
                     {this.props.lesson.title}

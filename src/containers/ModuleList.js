@@ -28,7 +28,7 @@ export default class ModuleList extends React.Component {
 
     componentDidMount() {
         this.setCourseId(this.props.courseId);
-        this.findAllModules();
+        this.findAllModulesForCourse(this.props.courseId);
     }
 
     componentWillReceiveProps(newProps){
@@ -38,9 +38,7 @@ export default class ModuleList extends React.Component {
 
     findAllModules() {
         this.moduleServiceClient.findAllModules()
-            .then((modules) => {
-                this.setState({modules: modules});
-            });
+            .then((modules) => {this.setState({modules: modules})});
     }
 
     findAllModulesForCourse(courseId) {
