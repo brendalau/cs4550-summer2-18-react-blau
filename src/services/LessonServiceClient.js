@@ -1,6 +1,6 @@
 let _singleton = Symbol();
-const COURSE_API_URL = 'cs4550-summer2-18-react-blau.herokuapp.com/api/course';
-const LESSON_API_URL = 'cs4550-summer2-18-react-blau.herokuapp.com/api/lesson';
+const COURSE_API_URL = 'https://cs4550-summer2-18-react-blau.herokuapp.com//api/course';
+const LESSON_API_URL = 'https://cs4550-summer2-18-react-blau.herokuapp.com//api/lesson';
 
 
 export default class LessonServiceClient {

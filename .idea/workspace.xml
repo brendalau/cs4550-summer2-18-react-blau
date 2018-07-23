@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="734d9857-01ac-46c6-8aac-b3112b443bf1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/CourseServiceClient.js" afterPath="$PROJECT_DIR$/src/services/CourseServiceClient.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/LessonServiceClient.js" afterPath="$PROJECT_DIR$/src/services/LessonServiceClient.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ModuleServiceClient.js" afterPath="$PROJECT_DIR$/src/services/ModuleServiceClient.js" />
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CourseServiceClient.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CourseServiceClient.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/services/CourseServiceClient.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="66" lean-forward="false" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+              <caret line="1" column="75" lean-forward="false" selection-start-line="1" selection-start-column="75" selection-end-line="1" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -52,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/src/services/LessonServiceClient.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="66" lean-forward="false" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+              <caret line="2" column="75" lean-forward="false" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -70,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleServiceClient.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModuleServiceClient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/ModuleServiceClient.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="66" lean-forward="false" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+              <caret line="2" column="75" lean-forward="false" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -160,9 +159,9 @@
         <option value="$PROJECT_DIR$/src/components/CourseRow.js" />
         <option value="$PROJECT_DIR$/src/containers/LessonTabs.js" />
         <option value="$PROJECT_DIR$/src/containers/CourseEditor.js" />
-        <option value="$PROJECT_DIR$/src/services/CourseServiceClient.js" />
-        <option value="$PROJECT_DIR$/src/services/LessonServiceClient.js" />
         <option value="$PROJECT_DIR$/src/services/ModuleServiceClient.js" />
+        <option value="$PROJECT_DIR$/src/services/LessonServiceClient.js" />
+        <option value="$PROJECT_DIR$/src/services/CourseServiceClient.js" />
       </list>
     </option>
   </component>
@@ -367,12 +366,12 @@
       <option name="presentableId" value="Default" />
       <updated>1531577856202</updated>
       <workItem from="1531577857664" duration="43378000" />
-      <workItem from="1531855065547" duration="75238000" />
+      <workItem from="1531855065547" duration="75365000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118616000" />
+    <option name="totallyTimeSpent" value="118743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="28" y="23" width="1372" height="854" extended-state="0" />
@@ -736,10 +735,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/CourseServiceClient.js">
+    <entry file="file://$PROJECT_DIR$/src/services/ModuleServiceClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="66" lean-forward="false" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+        <state relative-caret-position="30">
+          <caret line="2" column="75" lean-forward="false" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -747,15 +746,15 @@
     <entry file="file://$PROJECT_DIR$/src/services/LessonServiceClient.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="66" lean-forward="false" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+          <caret line="2" column="75" lean-forward="false" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ModuleServiceClient.js">
+    <entry file="file://$PROJECT_DIR$/src/services/CourseServiceClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="66" lean-forward="false" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+        <state relative-caret-position="15">
+          <caret line="1" column="75" lean-forward="false" selection-start-line="1" selection-start-column="75" selection-end-line="1" selection-end-column="75" />
           <folding />
         </state>
       </provider>
