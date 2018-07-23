@@ -1,0 +1,157 @@
+.wbdv-new-module {
+    background-color: #d9d6dc;
+}
+
+.wbdv-body {
+    background-color: #f1f1f1;
+}
+
+#wbdv-new-module-fld, .wbdv-create {
+    display: inline-block;
+}
+
+li.nav-item>a, li.nav-item>i {
+    display: inline-block;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+}
+
+.list-group-item:last-child {
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+
+li.list-group-item {
+    margin: auto;
+    border: 1px solid #e6e6e6;
+}
+
+.wbdv-edit {
+    padding-right: 16px;
+}
+
+.wbdv-remove {
+    display: inline;
+    float: right;
+}
+
+a.nav-item.wbdv-lesson-tab.active {
+    border-bottom: 4px solid #999999;
+}
+
+a.nav-item.wbdv-module-list-item.active {
+    font-weight: bold;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: auto;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: transparent;
+    padding-right: 10px;
+}
+
+.wbdv-module-list {
+    padding: 30px 20px;
+}
+
+.wbdv-course-editor-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+.col-sm-4 {
+    background-color: #563f46;
+    height: 100%;
+    position: absolute;
+}
+
+a.nav-link:hover {
+    border: none;
+}
+
+ul.nav-tabs {
+    border-bottom: 4px solid #cccccc;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}
+
+header.wbdv-course-editor-header>h3 {
+    margin-left: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+}
+
+header.wbdv-course-editor-header>h3, header.wbdv-course-editor-header>i {
+    display: inline-block;
+}
+
+.col-sm-8 {
+    padding: 30px 40px;
+    float: right;
+}
+
+li>i:hover, header>i:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    cursor: pointer;
+}
+
+.wbdv-module-list-item:hover, .wbdv-module-list-item:focus {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.wbdv-new-lesson {
+    background-color: #d9d6dc;
+    margin-left: 20px;
+    height: 50%;
+}
+
+li.wbdv-new-lesson>i {
+    margin: auto;
+    padding: 10px;
+}
+
+.modal-body {
+    display: inline-flex;
+    margin: auto;
+}
+
+div.modal-body>i {
+    padding-left: 10px;
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.fa-lg {
+    line-height: normal;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: transparent;
+    border: none;
+}

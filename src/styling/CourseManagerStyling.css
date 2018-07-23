@@ -1,0 +1,67 @@
+.wbdv-new-course-row {
+    background-color: #d9d6dc;
+}
+
+.wbdv-course-row {
+    color: #999999;
+}
+
+.wbdv-course-title {
+    color: black;
+}
+
+th, td {
+    padding: 10px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.wbdv-course-manager-header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+header.wbdv-course-manager-header>h3 {
+    margin-left: 50px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+a, a:hover {
+    color: black;
+    text-decoration: none;
+}
+body {
+    height: 100%;
+    background-color: #f1f1f1;
+}
+
+.wbdv-course-header-row {
+    background-color: #563f46;
+    color: white;
+}
+
+.wbdv-course-list {
+    margin: auto;
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px #e6e6e6;
+}
+
+.spaced {
+    white-space: nowrap;
+    padding-right: 15%;
+}
+
+td>i {
+    cursor: pointer;
+}
+
+.wbdv-folder {
+    padding-right: 15px;
+}
+
+tr:hover.wbdv-course-row {
+    background-color: #f2f2f2;
+}
