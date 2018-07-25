@@ -10,10 +10,7 @@ import {Modal} from "react-bootstrap";
 
 const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget, createModal, showCreateModal, hideCreateModal}) =>
 {
-    let widgetTitle;
-    let widgetType;
-    // var newWidgetTypeSel = document.getElementById('wbdv-new-widget-type');
-
+    let newWidgetTypeSel;
 
     return(
         <div className="row col-sm-8">
@@ -26,7 +23,8 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                     <Modal.Title>Create New Widget</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <select id="wbdv-new-widget-type" className="form-control wbdv-type-dropdown">
+                    <select ref={node => newWidgetTypeSel = node}
+                            id="wbdv-new-widget-type" className="form-control wbdv-type-dropdown">
                         <option value="HEADING">Heading</option>
                         <option value="PARAGRAPH">Paragraph</option>
                         <option value="LIST">List</option>
@@ -36,7 +34,7 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                     <i className="fa-lg fa fa-plus wbdv-create"
                        onClick={() => {
                            let w = {
-                               widgetType: "HEADING"
+                               widgetType: newWidgetTypeSel
                            };
                            createWidget(w)
                        }}></i>

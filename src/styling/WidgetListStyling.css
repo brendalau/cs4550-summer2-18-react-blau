@@ -115,4 +115,12 @@ li.list-group-item {
 
 }
 
+i.disabled {
+    opacity: .2;
+}
+
+i.disabled:hover {
+    cursor: none;
+}
+
 
