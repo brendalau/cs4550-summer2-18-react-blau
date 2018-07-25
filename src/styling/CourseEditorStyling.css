@@ -10,6 +10,14 @@
     display: inline-block;
 }
 
+#wbdv-new-module-fld {
+    width: 80%;
+}
+
+.wbdv-create {
+    float: right;
+}
+
 li.nav-item>a, li.nav-item>i {
     display: inline-block;
 }
@@ -34,7 +42,6 @@ li.list-group-item {
 }
 
 .wbdv-remove {
-    display: inline;
     float: right;
 }
 
@@ -154,4 +161,8 @@ div.modal-body>i {
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     background-color: transparent;
     border: none;
+}
+
+#wbdv-lesson-tabs {
+    padding-bottom: 0px;
 }

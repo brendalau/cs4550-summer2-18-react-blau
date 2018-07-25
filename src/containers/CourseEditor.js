@@ -6,6 +6,12 @@ import { Modal } from 'react-bootstrap';
 import CourseServiceClient from "../services/CourseServiceClient";
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../styling/CourseEditorStyling.css';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {WidgetReducer} from "../reducers/WidgetReducer";
+import WidgetListContainer from "./WidgetListContainer";
+
+let store = createStore(WidgetReducer);
 
 export default class CourseEditor extends React.Component {
     constructor() {
@@ -54,44 +60,51 @@ export default class CourseEditor extends React.Component {
 
     render() {
         return(
-            <Router>
-                <div>
-                    <Modal show={this.state.show}
-                           onHide={this.handleHide}
-                           animation={true}
-                           bsSize="small">
+            <Provider store={store}>
+                <Router>
+                    <div>
+                        <Modal show={this.state.show}
+                               onHide={this.handleHide}
+                               animation={true}
+                               bsSize="small">
 
-                        <Modal.Header closeButton>
-                            <Modal.Title>Update Course Title</Modal.Title>
-                        </Modal.Header>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Update Course Title</Modal.Title>
+                            </Modal.Header>
 
-                        <Modal.Body>
-                            <input id="wbdv-update-course-title-fld"
-                                   className="form-control"
-                                   placeholder={this.state.course.title}
-                                   onChange={this.titleChanged}
-                            />
-                            <i className="fa-lg fa fa-check wbdv-update"
-                               onClick={this.updateCourse}></i>
-                        </Modal.Body>
-                    </Modal>
+                            <Modal.Body>
+                                <input id="wbdv-update-course-title-fld"
+                                       className="form-control"
+                                       placeholder={this.state.course.title}
+                                       onChange={this.titleChanged}
+                                />
+                                <i className="fa-lg fa fa-check wbdv-update"
+                                   onClick={this.updateCourse}></i>
+                            </Modal.Body>
+                        </Modal>
 
-                    <div className="wbdv-body container-fluid">
-                        <header className="wbdv-course-editor-header">
-                            <h3>
-                                    Editing: {this.state.course.title}
-                            </h3>
-                            <i className="fa-lg fa fa-pencil wbdv-edit" onClick={this.handleShow}></i>
-                        </header>
+                        <div className="wbdv-body container-fluid">
+                            <header className="wbdv-course-editor-header">
+                                <h3>
+                                        Editing: {this.state.course.title}
+                                </h3>
+                                <i className="fa-lg fa fa-pencil wbdv-edit" o
+                                   nClick={this.handleShow}></i>
+                            </header>
 
-                        <aside className="col-sm-4">
-                            <ModuleList courseId={this.props.match.params.courseId}/>
-                        </aside>
+                            <aside className="col-sm-4">
+                                <ModuleList courseId={this.props.match.params.courseId}/>
+                            </aside>
 
-                        <Route path="/course/:courseId/module/:moduleId" component={ModuleEditor}/>
+                            <Route path="/course/:courseId/module/:moduleId"
+                                   component={ModuleEditor}/>
+
+                            <Route path="/course/:courseId/module/:moduleId/lesson/:lessonId"
+                                   component={WidgetListContainer}/>
+                        </div>
                     </div>
-                </div>
-            </Router>
+                </Router>
+        </Provider>
         );
     }
 }

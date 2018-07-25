@@ -117,7 +117,7 @@ export default class ModuleList extends React.Component {
                                className="form-control"
                                placeholder="New Module Name"
                                onChange={this.titleChanged}/>
-                        <i className="fa-lg fa fa-plus wbdv-create float-right"
+                        <i className="fa-lg fa fa-plus wbdv-create"
                            onClick={this.createModule}></i>
                     </li>
                     {this.renderModuleListItems()}

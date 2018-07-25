@@ -39,7 +39,7 @@ export default class ModuleEditor extends React.Component {
 
     render() {
         return(
-            <div className="col-sm-8">
+            <div className="col-sm-8" id="wbdv-lesson-tabs">
                 {this.renderLessonTabs()}
             </div>
         );
