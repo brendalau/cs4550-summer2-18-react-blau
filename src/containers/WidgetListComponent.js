@@ -8,7 +8,7 @@ import {LinkWidget} from "../components/widgets/LinkWidget";
 import {Modal} from "react-bootstrap";
 
 
-const WidgetListComponent = ({widgets, deleteWidget, createWidget, createModal, showCreateModal, hideCreateModal}) =>
+const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget, createModal, showCreateModal, hideCreateModal}) =>
 {
     let widgetTitle;
     let widgetType;
@@ -61,15 +61,25 @@ const WidgetListComponent = ({widgets, deleteWidget, createWidget, createModal, 
                          <li className="list-group-item" key={index}>
                              <div>
                                  {widget.widgetType === 'HEADING'
-                                  && <HeadingWidget widget={widget} deleteWidget={deleteWidget}/>}
+                                  && <HeadingWidget widget={widget}
+                                                    deleteWidget={deleteWidget}
+                                                    updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'PARAGRAPH'
-                                  && <ParagraphWidget widget={widget} deleteWidget={deleteWidget}/>}
+                                  && <ParagraphWidget widget={widget}
+                                                      deleteWidget={deleteWidget}
+                                                      updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'LIST'
-                                  && <ListWidget widget={widget} deleteWidget={deleteWidget}/>}
+                                  && <ListWidget widget={widget}
+                                                 deleteWidget={deleteWidget}
+                                                 updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'IMAGE'
-                                  && <ImageWidget widget={widget} deleteWidget={deleteWidget}/>}
+                                  && <ImageWidget widget={widget}
+                                                  deleteWidget={deleteWidget}
+                                                  updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'LINK'
-                                  && <LinkWidget widget={widget} deleteWidget={deleteWidget}/>}
+                                  && <LinkWidget widget={widget}
+                                                 deleteWidget={deleteWidget}
+                                                 updateWidget={updateWidget}/>}
                              </div>
                          </li>
                     )}

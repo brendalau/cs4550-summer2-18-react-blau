@@ -27,7 +27,7 @@ export const ParagraphWidget = ({widget, deleteWidget, updateWidget}) => {
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
-            <h4>Paragraph Widget: {widget.title}</h4>
+            <h4 className="wbdv-widget-title">Paragraph Widget: {widget.title}</h4>
 
             <div className="form-group row">
                 <label htmlFor="wbdv-paragraph-widget-title" className="col-sm-2">Widget Title</label>

@@ -99,7 +99,7 @@ input:checked + .slider:before {
     padding-top: 50px;
 }
 
-h4 {
+h4.wbdv-widget-title {
     margin-top: 5px;
     padding-top: 15px;
     padding-bottom: 10px;

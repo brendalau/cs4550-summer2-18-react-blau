@@ -27,7 +27,7 @@ export const LinkWidget = ({widget, deleteWidget, updateWidget}) => {
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
-            <h4>Link Widget: {widget.title}</h4>
+            <h4 className="wbdv-widget-title">Link Widget: {widget.title}</h4>
 
             <div className="form-group row">
                 <label htmlFor="wbdv-link-widget-title" className="col-sm-2">Widget Title</label>
