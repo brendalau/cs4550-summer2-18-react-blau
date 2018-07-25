@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import WidgetListComponent from './WidgetListComponent';
 
-const stateToPropertyMapper = state => ({widgets: state.widgets})
+const stateToPropertyMapper = state => ({widgets: state.widgets, createModal: state.createModal})
 
 const dispatcherToPropertyMapper = dispatch => (
     {
@@ -16,7 +16,13 @@ const dispatcherToPropertyMapper = dispatch => (
         updateWidget: w => dispatch({
                                         type: 'UPDATE_WIDGET',
                                         widget: w
-                                    })
+                                    }),
+        showCreateModal: () => dispatch({
+                                            type: 'SHOW_CREATE_MODAL',
+                                        }),
+        hideCreateModal: () => dispatch({
+                                            type: 'HIDE_CREATE_MODAL',
+                                        })
     }
 )
 

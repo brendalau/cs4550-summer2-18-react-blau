@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HeadingWidget = ({widget, updateWidget}) => {
+export const HeadingWidget = ({widget, deleteWidget, updateWidget}) => {
     let widgetType;
 
     return(
@@ -14,8 +14,9 @@ export const HeadingWidget = ({widget, updateWidget}) => {
                              updateWidget(w)
                          }}
                          ref={node => widgetType = node}
-                         className="form-control wbdv-type-dropdown">
-                     <option value="HEADING" selected="selected">Heading</option>
+                         className="form-control wbdv-type-dropdown"
+                         defaultValue="HEADING">
+                     <option value="HEADING">Heading</option>
                      <option value="PARAGRAPH">Paragraph</option>
                      <option value="LIST">List</option>
                      <option value="IMAGE">Image</option>
@@ -23,21 +24,22 @@ export const HeadingWidget = ({widget, updateWidget}) => {
                  </select>
                  <i className="fa-lg fa fa-arrow-up wbdv-arrow-up"></i>
                  <i className="fa-lg fa fa-arrow-down wbdv-arrow-down"></i>
-                 <i className="fa-lg fa fa-times wbdv-widget-remove"></i>
+                 <i className="fa-lg fa fa-times wbdv-widget-remove"
+                    onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
             <h4>Heading Widget: {widget.title}</h4>
 
             <div className="form-group row">
-                <label for="wbdv-widget-title" className="col-sm-2">Widget Title</label>
+                <label htmlFor="wbdv-heading-widget-title" className="col-sm-2">Widget Title</label>
                 <div className="col-sm-10">
-                    <input id="wbdv-widget-title"
+                    <input id="wbdv-heading-widget-title"
                            className="form-control"
                            placeholder="Widget Title"/>
                 </div>
             </div>
 
             <div className="form-group row">
-                <label for="wbdv-heading-text" className="col-sm-2">Heading Text</label>
+                <label htmlFor="wbdv-heading-text" className="col-sm-2">Heading Text</label>
                 <div className="col-sm-10">
                     <input id="wbdv-heading-text"
                            className="form-control"
@@ -46,7 +48,7 @@ export const HeadingWidget = ({widget, updateWidget}) => {
             </div>
 
             <div className="form-group row">
-                <label for="wbdv-heading-size" className="col-sm-2">Heading Size</label>
+                <label htmlFor="wbdv-heading-size" className="col-sm-2">Heading Size</label>
                 <div className="col-sm-10">
                     <select className="form-control">
                         <option value="H1">Heading 1</option>
@@ -57,11 +59,11 @@ export const HeadingWidget = ({widget, updateWidget}) => {
             </div>
 
             <div className="form-group row">
-                <label for="wbdv-preview" className="col-sm-2">Preview</label>
+                <label htmlFor="wbdv-heading-preview" className="col-sm-2">Preview</label>
                 <div className="col-sm-10">
-                    <input id="wbdv-preview"
+                    <input id="wbdv-heading-preview"
                            className="form-control"
-                           readonly="readonly"/>
+                           readOnly="readonly"/>
                 </div>
             </div>
         </div>

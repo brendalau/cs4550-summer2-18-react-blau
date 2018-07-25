@@ -53,10 +53,6 @@ a.nav-item.wbdv-module-list-item.active {
     font-weight: bold;
 }
 
-.nav-tabs .nav-item {
-    margin-bottom: auto;
-}
-
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
     background-color: transparent;
     padding-right: 10px;
@@ -85,6 +81,8 @@ a.nav-link:hover {
 
 ul.nav-tabs {
     border-bottom: 4px solid #cccccc;
+    height: 45px;
+    box-sizing: border-box;
 }
 
 .nav-tabs .nav-link {
@@ -120,7 +118,6 @@ li>i:hover, header>i:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a
 .wbdv-new-lesson {
     background-color: #d9d6dc;
     margin-left: 20px;
-    height: 50%;
 }
 
 li.wbdv-new-lesson>i {

@@ -88,8 +88,8 @@ export default class CourseEditor extends React.Component {
                                 <h3>
                                         Editing: {this.state.course.title}
                                 </h3>
-                                <i className="fa-lg fa fa-pencil wbdv-edit" o
-                                   nClick={this.handleShow}></i>
+                                <i className="fa-lg fa fa-pencil wbdv-edit"
+                                   onClick={this.handleShow}></i>
                             </header>
 
                             <aside className="col-sm-4">
