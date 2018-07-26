@@ -123,4 +123,8 @@ i.disabled:hover {
     cursor: none;
 }
 
+a.wbdv-widget-link {
+    color: #563f46;
+    text-decoration: underline;
+}
 

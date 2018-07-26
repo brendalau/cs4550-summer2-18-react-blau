@@ -24,7 +24,9 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                 </Modal.Header>
                 <Modal.Body>
                     <select ref={node => newWidgetTypeSel = node}
-                            id="wbdv-new-widget-type" className="form-control wbdv-type-dropdown">
+                            id="wbdv-new-widget-type"
+                            className="form-control wbdv-type-dropdown"
+                            defaultValue="HEADING">
                         <option value="HEADING">Heading</option>
                         <option value="PARAGRAPH">Paragraph</option>
                         <option value="LIST">List</option>
@@ -37,6 +39,7 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                                widgetType: newWidgetTypeSel
                            };
                            createWidget(w)
+                           hideCreateModal()
                        }}></i>
                 </Modal.Body>
             </Modal>
@@ -60,22 +63,27 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                              <div>
                                  {widget.widgetType === 'HEADING'
                                   && <HeadingWidget widget={widget}
+                                                    numWidgets={widgets.size}
                                                     deleteWidget={deleteWidget}
                                                     updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'PARAGRAPH'
                                   && <ParagraphWidget widget={widget}
+                                                      numWidgets={widgets.size}
                                                       deleteWidget={deleteWidget}
                                                       updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'LIST'
                                   && <ListWidget widget={widget}
+                                                 numWidgets={widgets.size}
                                                  deleteWidget={deleteWidget}
                                                  updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'IMAGE'
                                   && <ImageWidget widget={widget}
+                                                  numWidgets={widgets.size}
                                                   deleteWidget={deleteWidget}
                                                   updateWidget={updateWidget}/>}
                                  {widget.widgetType === 'LINK'
                                   && <LinkWidget widget={widget}
+                                                 numWidgets={widgets.size}
                                                  deleteWidget={deleteWidget}
                                                  updateWidget={updateWidget}/>}
                              </div>

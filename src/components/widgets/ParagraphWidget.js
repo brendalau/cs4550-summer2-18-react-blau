@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ParagraphWidget = ({widget, deleteWidget, updateWidget}) => {
+export const ParagraphWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => {
     let widgetType;
     let widgetTitle;
     let paragraphText;
@@ -12,12 +12,8 @@ export const ParagraphWidget = ({widget, deleteWidget, updateWidget}) => {
                          className="form-control wbdv-type-dropdown"
                          defaultValue="PARAGRAPH"
                          onChange={() => {
-                             let w = {
-                                 id: widget.id,
-                                 title: widget.title,
-                                 widgetType: widgetType.value
-                             };
-                             updateWidget(w)
+                             widget.widgetType = widgetType.value
+                             updateWidget(widget)
                          }}>
                      <option value="HEADING">Heading</option>
                      <option value="PARAGRAPH">Paragraph</option>
@@ -25,8 +21,8 @@ export const ParagraphWidget = ({widget, deleteWidget, updateWidget}) => {
                      <option value="IMAGE">Image</option>
                      <option value="LINK">Link</option>
                  </select>
-                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${widget.position === 0 ? 'disabled' : ''}`}></i>
-                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${widget.position === 4 ? 'disabled' : ''}`}></i>
+                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${widget.position === 1 ? 'disabled' : ''}`}></i>
+                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${widget.position === numWidgets ? 'disabled' : ''}`}></i>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
@@ -41,11 +37,8 @@ export const ParagraphWidget = ({widget, deleteWidget, updateWidget}) => {
                            value={widget.title}
                            placeholder="Widget Title"
                            onChange={() => {
-                               let w = {
-                                   id: widget.id,
-                                   title: widgetTitle.value
-                               };
-                               updateWidget(w)
+                               widget.title = widgetTitle.value
+                               updateWidget(widget)
                            }}/>
                 </div>
             </div>
@@ -59,11 +52,8 @@ export const ParagraphWidget = ({widget, deleteWidget, updateWidget}) => {
                            value={widget.paragraphText}
                            placeholder="Paragraph Text"
                            onChange={() => {
-                               let w = {
-                                   id: widget.id,
-                                   paragraphText: paragraphText.value
-                               };
-                               updateWidget(w)
+                               widget.paragraphText = paragraphText.value
+                               updateWidget(widget)
                            }}/>
                 </div>
             </div>
