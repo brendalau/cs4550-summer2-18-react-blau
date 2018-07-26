@@ -6,28 +6,29 @@ let initialState = {
         {id: 456, title: 'Widget 4', position: 4, widgetType: 'IMAGE', imageURL: 'https://data.whicdn.com/images/68232462/large.jpg'},
         {id: 567, title: 'Widget 5', position: 5, widgetType: 'LINK', linkText: 'Linky Link', linkURL: 'https://data.whicdn.com/images/68232462/large.jpg'}
     ],
-    createModal: false
+    createModal: false,
+    previewMode: false
 };
 
 export const WidgetReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'DELETE_WIDGET':
             return {
+                ...state,
                 widgets: state.widgets.filter(
                     widget => widget.id !== action.widgetId
-                ),
-                createModal: state.createModal
+                )
             }
         case 'CREATE_WIDGET':
             return {
+                ...state,
                 widgets: [
-                    action.widget,
-                    ...state.widgets
-                ],
-                createModal: state.createModal
+                    ...state.widgets, action.widget
+                ]
             }
         case 'UPDATE_WIDGET':
             let w = {
+                ...state,
                 widgets: state.widgets.map(widget => {
                     if(widget.id === action.widget.id) {
                         widget.widgetType = action.widget.widgetType
@@ -51,20 +52,37 @@ export const WidgetReducer = (state = initialState, action) => {
                     } else {
                         return widget
                     }
-                }),
-                createModal: state.createModal
+                })
             }
             return w;
         case 'SHOW_CREATE_MODAL':
             return {
-                widgets: state.widgets,
+                ...state,
                 createModal: true
             }
         case 'HIDE_CREATE_MODAL':
             return {
-                widgets: state.widgets,
+                ...state,
                 createModal: false
             }
+        case 'TOGGLE_PREVIEW_MODE':
+            return{
+                ...state,
+                widgets: state.widgets.map(widget => {
+                    widget.preview = !(widget.preview)
+                    return widget
+                }),
+                previewMode: !(state.previewMode)
+            }
+        // case 'DISABLE_PREVIEW_MODE':
+        //     return{
+        //         ...state,
+        //         widgets: state.widgets.map(widget => {
+        //             widget.preview = false
+        //             return widget
+        //         }),
+        //         previewMode: false
+        //     }
         default:
             return state
     }

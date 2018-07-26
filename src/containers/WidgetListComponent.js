@@ -8,7 +8,8 @@ import {LinkWidget} from "../components/widgets/LinkWidget";
 import {Modal} from "react-bootstrap";
 
 
-const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget, createModal, showCreateModal, hideCreateModal}) =>
+const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget, createModal,
+                                 showCreateModal, hideCreateModal, previewMode, togglePreviewMode}) =>
 {
     let newWidgetTypeSel;
 
@@ -36,6 +37,7 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                     <i className="fa-lg fa fa-plus wbdv-create"
                        onClick={() => {
                            let w = {
+                               id: (new Date()).getTime.value,
                                widgetType: newWidgetTypeSel
                            };
                            createWidget(w)
@@ -49,9 +51,10 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                    onClick={() => showCreateModal()}>Create New</b>
                 <span>
                     <b>Preview</b>
-                    <label className="switch">
-                      <input type="checkbox"/>
-                      <span className="slider"></span>
+                    <label className="wbdv-preview-switch">
+                      <input type="checkbox"
+                             onClick={() => {togglePreviewMode()}}/>
+                      <span className="wbdv-preview-slider"></span>
                     </label>
                     <b className="wbdv-save">Save</b>
                 </span>
@@ -65,27 +68,32 @@ const WidgetListComponent = ({widgets, deleteWidget, updateWidget, createWidget,
                                   && <HeadingWidget widget={widget}
                                                     numWidgets={widgets.size}
                                                     deleteWidget={deleteWidget}
-                                                    updateWidget={updateWidget}/>}
+                                                    updateWidget={updateWidget}
+                                                    previewMode={previewMode}/>}
                                  {widget.widgetType === 'PARAGRAPH'
                                   && <ParagraphWidget widget={widget}
                                                       numWidgets={widgets.size}
                                                       deleteWidget={deleteWidget}
-                                                      updateWidget={updateWidget}/>}
+                                                      updateWidget={updateWidget}
+                                                      previewMode={previewMode}/>}
                                  {widget.widgetType === 'LIST'
                                   && <ListWidget widget={widget}
                                                  numWidgets={widgets.size}
                                                  deleteWidget={deleteWidget}
-                                                 updateWidget={updateWidget}/>}
+                                                 updateWidget={updateWidget}
+                                                 previewMode={previewMode}/>}
                                  {widget.widgetType === 'IMAGE'
                                   && <ImageWidget widget={widget}
                                                   numWidgets={widgets.size}
                                                   deleteWidget={deleteWidget}
-                                                  updateWidget={updateWidget}/>}
+                                                  updateWidget={updateWidget}
+                                                  previewMode={previewMode}/>}
                                  {widget.widgetType === 'LINK'
                                   && <LinkWidget widget={widget}
                                                  numWidgets={widgets.size}
                                                  deleteWidget={deleteWidget}
-                                                 updateWidget={updateWidget}/>}
+                                                 updateWidget={updateWidget}
+                                                 previewMode={previewMode}/>}
                              </div>
                          </li>
                     )}

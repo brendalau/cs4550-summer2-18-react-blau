@@ -1,7 +1,10 @@
 import {connect} from 'react-redux';
 import WidgetListComponent from './WidgetListComponent';
 
-const stateToPropertyMapper = state => ({widgets: state.widgets, createModal: state.createModal})
+const stateToPropertyMapper = state => ({
+    widgets: state.widgets,
+    createModal: state.createModal,
+    previewMode: state.previewMode})
 
 const dispatcherToPropertyMapper = dispatch => (
     {
@@ -18,11 +21,17 @@ const dispatcherToPropertyMapper = dispatch => (
                                         widget: w
                                     }),
         showCreateModal: () => dispatch({
-                                            type: 'SHOW_CREATE_MODAL',
+                                            type: 'SHOW_CREATE_MODAL'
                                         }),
         hideCreateModal: () => dispatch({
-                                            type: 'HIDE_CREATE_MODAL',
-                                        })
+                                            type: 'HIDE_CREATE_MODAL'
+                                        }),
+        togglePreviewMode: () => dispatch({
+                                            type: 'TOGGLE_PREVIEW_MODE'
+                                          })
+        // disablePreviewMode: () => dispatch({
+        //                                       type: 'DISABLE_PREVIEW_MODE'
+        //                                   })
     }
 )
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => {
+export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
     let widgetType;
     let widgetTitle;
     let headingText;
@@ -8,7 +8,7 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget}) 
 
     return(
         <div className="wbdv-widget-content">
-            <span>
+            <span className={`${previewMode === true ? 'hide' : ''}`}>
                  <select ref={node => widgetType = node}
                          className="form-control wbdv-type-dropdown"
                          defaultValue="HEADING"
@@ -27,9 +27,12 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget}) 
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
-            <h4 className="wbdv-widget-title">Heading Widget: {widget.title}</h4>
 
-            <div className="form-group row">
+            <h4 className={`wbdv-widget-title ${previewMode === true ? 'hide' : ''}`}>
+                Heading Widget: {widget.title}
+            </h4>
+
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-heading-widget-title" className="col-sm-2">Widget Title</label>
                 <div className="col-sm-10">
                     <input ref={node => widgetTitle = node}
@@ -44,7 +47,7 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget}) 
                 </div>
             </div>
 
-            <div className="form-group row">
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-heading-text" className="col-sm-2">Heading Text</label>
                 <div className="col-sm-10">
                     <input ref={node => headingText = node}
@@ -59,7 +62,7 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget}) 
                 </div>
             </div>
 
-            <div className="form-group row">
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-heading-size" className="col-sm-2">Heading Size</label>
                 <div className="col-sm-10">
                     <select ref={node => headingSize = node}

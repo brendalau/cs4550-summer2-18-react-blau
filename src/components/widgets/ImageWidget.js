@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => {
+export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
     let widgetType;
     let widgetTitle;
     let imageURL;
 
     return(
         <div className="wbdv-widget-content">
-            <span>
+            <span className={`${previewMode === true ? 'hide' : ''}`}>
                  <select ref={node => widgetType = node}
                          className="form-control wbdv-type-dropdown"
                          defaultValue="IMAGE"
@@ -26,9 +26,12 @@ export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget}) =>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
-            <h4 className="wbdv-widget-title">Image Widget: {widget.title}</h4>
 
-            <div className="form-group row">
+            <h4 className={`wbdv-widget-title ${previewMode === true ? 'hide' : ''}`}>
+                Image Widget: {widget.title}
+            </h4>
+
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-image-widget-title" className="col-sm-2">Widget Title</label>
                 <div className="col-sm-10">
                     <input ref={node => widgetTitle = node}
@@ -43,7 +46,7 @@ export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget}) =>
                 </div>
             </div>
 
-            <div className="form-group row">
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-image-url" className="col-sm-2">Image URL</label>
                 <div className="col-sm-10">
                     <input ref={node => imageURL = node}

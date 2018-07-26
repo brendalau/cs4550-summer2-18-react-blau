@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => {
+export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
     let widgetType;
     let widgetTitle;
     let linkText;
@@ -8,7 +8,7 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => 
 
     return(
         <div className="wbdv-widget-content">
-            <span>
+            <span className={`${previewMode === true ? 'hide' : ''}`}>
                  <select ref={node => widgetType = node}
                          className="form-control wbdv-type-dropdown"
                          defaultValue="LINK"
@@ -27,9 +27,12 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => 
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
-            <h4 className="wbdv-widget-title">Link Widget: {widget.title}</h4>
 
-            <div className="form-group row">
+            <h4 className={`wbdv-widget-title ${previewMode === true ? 'hide' : ''}`}>
+                Link Widget: {widget.title}
+            </h4>
+
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-link-widget-title" className="col-sm-2">Widget Title</label>
                 <div className="col-sm-10">
                     <input ref={node => widgetTitle = node}
@@ -44,7 +47,7 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => 
                 </div>
             </div>
 
-            <div className="form-group row">
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-link-text" className="col-sm-2">Link Text</label>
                 <div className="col-sm-10">
                     <input ref={node => linkText = node}
@@ -59,7 +62,7 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget}) => 
                 </div>
             </div>
 
-            <div className="form-group row">
+            <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-link-url" className="col-sm-2">Link URL</label>
                 <div className="col-sm-10">
                     <input ref={node => linkURL = node}
