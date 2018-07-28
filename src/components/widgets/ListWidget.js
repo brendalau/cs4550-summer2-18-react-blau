@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ListWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
+export const ListWidget = ({widget, numWidgets, position, deleteWidget, updateWidget, previewMode, moveUp, moveDown}) => {
     let widgetType;
     let widgetTitle;
     let listItems;
@@ -13,7 +13,7 @@ export const ListWidget = ({widget, numWidgets, deleteWidget, updateWidget, prev
                          className="form-control wbdv-type-dropdown"
                          defaultValue="LIST"
                          onChange={() => {
-                             widget.widgetType = widgetType.value
+                             widget.type = widgetType.value
                              updateWidget(widget)
                          }}>
                      <option value="HEADING">Heading</option>
@@ -22,8 +22,10 @@ export const ListWidget = ({widget, numWidgets, deleteWidget, updateWidget, prev
                      <option value="IMAGE">Image</option>
                      <option value="LINK">Link</option>
                  </select>
-                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${widget.position === 1 ? 'disabled' : ''}`}></i>
-                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${widget.position === numWidgets ? 'disabled' : ''}`}></i>
+                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${position === 0 ? 'disabled' : ''}`}
+                    onClick={() => {moveUp(widget.id)}}></i>
+                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${position === numWidgets-1 ? 'disabled' : ''}`}
+                    onClick={() => {moveDown(widget.id)}}></i>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>

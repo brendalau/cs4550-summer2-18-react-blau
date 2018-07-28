@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
+export const HeadingWidget = ({widget, numWidgets, position, deleteWidget, updateWidget, previewMode, moveUp, moveDown}) => {
     let widgetType;
     let widgetTitle;
-    let headingText;
-    let headingSize;
+    let text;
+    let size;
 
     return(
         <div className="wbdv-widget-content">
@@ -13,7 +13,7 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget, p
                          className="form-control wbdv-type-dropdown"
                          defaultValue="HEADING"
                          onChange={() => {
-                             widget.widgetType = widgetType.value
+                             widget.type = widgetType.value
                              updateWidget(widget)
                          }}>
                      <option value="HEADING">Heading</option>
@@ -22,8 +22,10 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget, p
                      <option value="IMAGE">Image</option>
                      <option value="LINK">Link</option>
                  </select>
-                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${widget.position === 1 ? 'disabled' : ''}`}></i>
-                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${widget.position === numWidgets ? 'disabled' : ''}`}></i>
+                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${position === 0 ? 'disabled' : ''}`}
+                    onClick={() => {moveUp(widget.id)}}></i>
+                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${position === numWidgets-1 ? 'disabled' : ''}`}
+                    onClick={() => {moveDown(widget.id)}}></i>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
@@ -50,13 +52,13 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget, p
             <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-heading-text" className="col-sm-2">Heading Text</label>
                 <div className="col-sm-10">
-                    <input ref={node => headingText = node}
+                    <input ref={node => text = node}
                            id="wbdv-heading-text"
                            className="form-control"
-                           value={widget.headingText}
+                           value={widget.text}
                            placeholder="Heading Text"
                            onChange={() => {
-                               widget.headingText = headingText.value
+                               widget.text = text.value
                                updateWidget(widget)
                            }}/>
                 </div>
@@ -65,11 +67,11 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget, p
             <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-heading-size" className="col-sm-2">Heading Size</label>
                 <div className="col-sm-10">
-                    <select ref={node => headingSize = node}
+                    <select ref={node => size = node}
                             className="form-control"
                             defaultValue="H1"
                             onChange={() => {
-                                widget.headingSize = headingSize.value
+                                widget.size = size.value
                                 updateWidget(widget)
                             }}>
                         <option value="H1">Heading 1</option>
@@ -81,9 +83,9 @@ export const HeadingWidget = ({widget, numWidgets, deleteWidget, updateWidget, p
 
             <div className="form-group row">
                 <div className="col-sm-12">
-                    {widget.headingSize === 'H1' && <h1>{widget.headingText}</h1>}
-                    {widget.headingSize === 'H2' && <h2>{widget.headingText}</h2>}
-                    {widget.headingSize === 'H3' && <h3>{widget.headingText}</h3>}
+                    {widget.size === 'H1' && <h1>{widget.text}</h1>}
+                    {widget.size === 'H2' && <h2>{widget.text}</h2>}
+                    {widget.size === 'H3' && <h3>{widget.text}</h3>}
                 </div>
             </div>
         </div>

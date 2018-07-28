@@ -1,25 +1,37 @@
 let initialState = {
+    currWidget: null,
     widgets: [
-        {id: 123, title: 'Widget 1', position: 1, widgetType: 'HEADING', headingText: 'This is one big header', headingSize: 'H1'},
-        {id: 234, title: 'Widget 2', position: 2, widgetType: 'PARAGRAPH', paragraphText: 'This is a paragraph'},
-        {id: 345, title: 'Widget 3', position: 3, widgetType: 'LIST', listItems: 'item 1\nitem 2', listType: 'UL'},
-        {id: 456, title: 'Widget 4', position: 4, widgetType: 'IMAGE', imageURL: 'https://data.whicdn.com/images/68232462/large.jpg'},
-        {id: 567, title: 'Widget 5', position: 5, widgetType: 'LINK', linkText: 'Linky Link', linkURL: 'https://data.whicdn.com/images/68232462/large.jpg'}
+        // {id: 123, title: 'Widget 1', type: 'HEADING', text: 'This is one big header', size: 'H1'},
+        // {id: 234, title: 'Widget 2', type: 'PARAGRAPH', text: 'This is a paragraph'},
+        // {id: 345, title: 'Widget 3', type: 'LIST', listItems: 'item 1\nitem 2', listType: 'UL'},
+        // {id: 456, title: 'Widget 4', type: 'IMAGE', src: 'https://data.whicdn.com/images/68232462/large.jpg'},
+        // {id: 567, title: 'Widget 5', type: 'LINK', text: 'Linky Link', href: 'https://data.whicdn.com/images/68232462/large.jpg'}
     ],
     createModal: false,
     previewMode: false
 };
 
+const LESSON_API_URL = 'http://localhost:8080/api/lesson';
+
 export const WidgetReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'DELETE_WIDGET':
+        case 'FIND_ALL_WIDGETS':
             return {
                 ...state,
-                widgets: state.widgets.filter(
-                    widget => widget.id !== action.widgetId
-                )
+                widgets: action.widgets
+            }
+        case 'FIND_WIDGET_BY_ID':
+            return {
+                ...state,
+                currWidget: action.widget
+            }
+        case 'FIND_WIDGETS_BY_LESSON':
+            return {
+                ...state,
+                widgets: action.widgets
             }
         case 'CREATE_WIDGET':
+            action.widgets
             return {
                 ...state,
                 widgets: [
@@ -31,10 +43,10 @@ export const WidgetReducer = (state = initialState, action) => {
                 ...state,
                 widgets: state.widgets.map(widget => {
                     if(widget.id === action.widget.id) {
-                        widget.widgetType = action.widget.widgetType
+                        widget.type = action.widget.type
                         widget.title = action.widget.title
 
-                        switch (widget.widgetType) {
+                        switch (widget.type) {
                             case 'HEADING':
                                 widget.headingSize = action.widget.headingSize
                             case 'PARAGRAPH':
@@ -55,6 +67,22 @@ export const WidgetReducer = (state = initialState, action) => {
                 })
             }
             return w;
+        case 'DELETE_WIDGET':
+            return {
+                ...state,
+                widgets: state.widgets.filter(
+                    widget => widget.id !== action.widgetId
+                )
+            }
+        case 'SAVE_WIDGETS':
+            fetch(LESSON_API_URL + '/' + action.lessonId, {
+                method: 'post',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(state.widgets)
+            })
+            return state
         case 'SHOW_CREATE_MODAL':
             return {
                 ...state,
@@ -74,15 +102,24 @@ export const WidgetReducer = (state = initialState, action) => {
                 }),
                 previewMode: !(state.previewMode)
             }
-        // case 'DISABLE_PREVIEW_MODE':
-        //     return{
-        //         ...state,
-        //         widgets: state.widgets.map(widget => {
-        //             widget.preview = false
-        //             return widget
-        //         }),
-        //         previewMode: false
-        //     }
+        case 'MOVE_UP':
+            let fromIndexUp = state.widgets.findIndex((widget) => widget.id === action.widgetId)
+            let toIndexUp = fromIndexUp--
+            state.widgets.splice(toIndexUp, 0, state.widgets.splice(fromIndexUp, 1)[0])
+            let updatedWidgetsUp = Object.assign(state.widgets)
+            return{
+                ...state,
+                widgets: updatedWidgetsUp
+            }
+        case 'MOVE_DOWN':
+            let fromIndexDown = state.widgets.findIndex((widget) => widget.id === action.widgetId)
+            let toIndexDown = fromIndexDown++
+            state.widgets.splice(toIndexDown, 0, state.widgets.splice(fromIndexDown, 1)[0])
+            let updatedWidgetsDown = Object.assign(state.widgets)
+            return{
+                ...state,
+                widgets: updatedWidgetsDown
+            }
         default:
             return state
     }

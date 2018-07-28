@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
+export const LinkWidget = ({widget, numWidgets, position, deleteWidget, updateWidget, previewMode, moveUp, moveDown}) => {
     let widgetType;
     let widgetTitle;
-    let linkText;
-    let linkURL;
+    let text;
+    let href;
 
     return(
         <div className="wbdv-widget-content">
@@ -13,7 +13,7 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget, prev
                          className="form-control wbdv-type-dropdown"
                          defaultValue="LINK"
                          onChange={() => {
-                             widget.widgetType = widgetType.value
+                             widget.type = widgetType.value
                              updateWidget(widget)
                          }}>
                      <option value="HEADING">Heading</option>
@@ -22,8 +22,10 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget, prev
                      <option value="IMAGE">Image</option>
                      <option value="LINK">Link</option>
                  </select>
-                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${widget.position === 1 ? 'disabled' : ''}`}></i>
-                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${widget.position === numWidgets ? 'disabled' : ''}`}></i>
+                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${position === 0 ? 'disabled' : ''}`}
+                    onClick={() => {moveUp(widget.id)}}></i>
+                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${position === numWidgets-1 ? 'disabled' : ''}`}
+                    onClick={() => {moveDown(widget.id)}}></i>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
@@ -50,13 +52,13 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget, prev
             <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-link-text" className="col-sm-2">Link Text</label>
                 <div className="col-sm-10">
-                    <input ref={node => linkText = node}
+                    <input ref={node => text = node}
                            id="wbdv-link-text"
                            className="form-control"
-                           value={widget.linkText}
+                           value={widget.text}
                            placeholder="Link Text"
                            onChange={() => {
-                               widget.linkText = linkText.value
+                               widget.text = text.value
                                updateWidget(widget)
                            }}/>
                 </div>
@@ -65,13 +67,13 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget, prev
             <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-link-url" className="col-sm-2">Link URL</label>
                 <div className="col-sm-10">
-                    <input ref={node => linkURL = node}
+                    <input ref={node => href = node}
                            id="wbdv-link-url"
                            className="form-control"
-                           value={widget.linkURL}
+                           value={widget.href}
                            placeholder="Link URL"
                            onChange={() => {
-                               widget.linkURL = linkURL.value
+                               widget.href = href.value
                                updateWidget(widget)
                            }}/>
                 </div>
@@ -79,7 +81,7 @@ export const LinkWidget = ({widget, numWidgets, deleteWidget, updateWidget, prev
 
             <div className="form-group row">
                 <div className="col-sm-12">
-                    <a href={widget.linkURL} className="wbdv-widget-link">{widget.linkText}</a>
+                    <a href={widget.href} className="wbdv-widget-link">{widget.text}</a>
                 </div>
             </div>
         </div>

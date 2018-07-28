@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const ParagraphWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
+export const ParagraphWidget = ({widget, numWidgets, position, deleteWidget, updateWidget, previewMode, moveUp, moveDown}) => {
     let widgetType;
     let widgetTitle;
-    let paragraphText;
+    let text;
 
     return(
         <div className="wbdv-widget-content">
@@ -12,7 +12,7 @@ export const ParagraphWidget = ({widget, numWidgets, deleteWidget, updateWidget,
                          className="form-control wbdv-type-dropdown"
                          defaultValue="PARAGRAPH"
                          onChange={() => {
-                             widget.widgetType = widgetType.value
+                             widget.type = widgetType.value
                              updateWidget(widget)
                          }}>
                      <option value="HEADING">Heading</option>
@@ -21,8 +21,10 @@ export const ParagraphWidget = ({widget, numWidgets, deleteWidget, updateWidget,
                      <option value="IMAGE">Image</option>
                      <option value="LINK">Link</option>
                  </select>
-                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${widget.position === 1 ? 'disabled' : ''}`}></i>
-                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${widget.position === numWidgets ? 'disabled' : ''}`}></i>
+                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${position === 0 ? 'disabled' : ''}`}
+                    onClick={() => {moveUp(widget.id)}}></i>
+                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${position === numWidgets-1 ? 'disabled' : ''}`}
+                    onClick={() => {moveUp(widget.id)}}></i>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
@@ -49,13 +51,13 @@ export const ParagraphWidget = ({widget, numWidgets, deleteWidget, updateWidget,
             <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-paragraph-text" className="col-sm-2">Paragraph Text</label>
                 <div className="col-sm-10">
-                    <input ref={node => paragraphText = node}
+                    <input ref={node => text = node}
                            id="wbdv-paragraph-text"
                            className="form-control"
-                           value={widget.paragraphText}
+                           value={widget.text}
                            placeholder="Paragraph Text"
                            onChange={() => {
-                               widget.paragraphText = paragraphText.value
+                               widget.text = text.value
                                updateWidget(widget)
                            }}/>
                 </div>
@@ -63,7 +65,7 @@ export const ParagraphWidget = ({widget, numWidgets, deleteWidget, updateWidget,
 
             <div className="form-group row">
                 <div className="col-sm-12">
-                    <p>{widget.paragraphText}</p>
+                    <p>{widget.text}</p>
                 </div>
             </div>
         </div>

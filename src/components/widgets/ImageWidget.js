@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget, previewMode}) => {
+export const ImageWidget = ({widget, numWidgets, position, deleteWidget, updateWidget, previewMode, moveUp, moveDown}) => {
     let widgetType;
     let widgetTitle;
-    let imageURL;
+    let src;
+
 
     return(
         <div className="wbdv-widget-content">
@@ -12,7 +13,7 @@ export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget, pre
                          className="form-control wbdv-type-dropdown"
                          defaultValue="IMAGE"
                          onChange={() => {
-                             widget.widgetType = widgetType.value
+                             widget.type = widgetType.value
                              updateWidget(widget)
                          }}>
                      <option value="HEADING">Heading</option>
@@ -21,8 +22,10 @@ export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget, pre
                      <option value="IMAGE">Image</option>
                      <option value="LINK">Link</option>
                  </select>
-                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${widget.position === 1 ? 'disabled' : ''}`}></i>
-                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${widget.position === numWidgets ? 'disabled' : ''}`}></i>
+                 <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${position === 0 ? 'disabled' : ''}`}
+                    onClick={() => {moveUp(widget.id)}}></i>
+                 <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${position === numWidgets-1 ? 'disabled' : ''}`}
+                    onClick={() => {moveDown(widget.id)}}></i>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
@@ -49,13 +52,13 @@ export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget, pre
             <div className={`form-group row ${previewMode === true ? 'hide' : ''}`}>
                 <label htmlFor="wbdv-image-url" className="col-sm-2">Image URL</label>
                 <div className="col-sm-10">
-                    <input ref={node => imageURL = node}
+                    <input ref={node => src = node}
                            id="wbdv-image-url"
                            className="form-control"
-                           value={widget.imageURL}
+                           value={widget.src}
                            placeholder="Image URL"
                            onChange={() => {
-                               widget.imageURL = imageURL.value
+                               widget.src = src.value
                                updateWidget(widget)
                            }}/>
                 </div>
@@ -63,7 +66,7 @@ export const ImageWidget = ({widget, numWidgets, deleteWidget, updateWidget, pre
 
             <div className="form-group row">
                 <div className="col-sm-12">
-                    <img src={widget.imageURL} height="200"/>
+                    <img src={widget.src} height="200"/>
                 </div>
             </div>
         </div>
