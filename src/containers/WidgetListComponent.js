@@ -44,10 +44,10 @@ export default class WidgetListComponent extends React.Component {
                         <i className="fa-lg fa fa-plus wbdv-create"
                            onClick={() => {
                                let w = {
-                                   id: (new Date()).getTime.value,
-                                   type: this.newWidgetTypeSel
+                                   id: (new Date()).getMilliseconds(),
+                                   type: this.newWidgetTypeSel.value
                                };
-                               this.props.createWidget(this.props.lessonId, w)
+                               this.props.createWidget(this.props.match.params.lessonId, w)
                                this.props.hideCreateModal()
                            }}></i>
                     </Modal.Body>
@@ -64,7 +64,7 @@ export default class WidgetListComponent extends React.Component {
                       <span className="wbdv-preview-slider"></span>
                     </label>
                     <b className="wbdv-save"
-                       onClick={() => this.props.saveWidgets(this.props.lessonId)}>Save</b>
+                       onClick={() => this.props.saveWidgets(this.props.match.params.lessonId)}>Save</b>
                 </span>
                 </div>
                 <div className="row wbdv-widget-list">

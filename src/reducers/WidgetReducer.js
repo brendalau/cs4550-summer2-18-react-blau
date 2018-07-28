@@ -31,7 +31,6 @@ export const WidgetReducer = (state = initialState, action) => {
                 widgets: action.widgets
             }
         case 'CREATE_WIDGET':
-            action.widgets
             return {
                 ...state,
                 widgets: [
