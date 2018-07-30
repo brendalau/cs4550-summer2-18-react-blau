@@ -117,7 +117,7 @@ export default class LessonTabs extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="row">
                 <Modal show={this.state.showCreate}
                        onHide={this.handleHideCreate}
                        animation={true}

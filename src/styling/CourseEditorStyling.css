@@ -10,6 +10,14 @@
     display: inline-block;
 }
 
+#wbdv-new-module-fld {
+    width: 80%;
+}
+
+.wbdv-create {
+    float: right;
+}
+
 li.nav-item>a, li.nav-item>i {
     display: inline-block;
 }
@@ -34,7 +42,6 @@ li.list-group-item {
 }
 
 .wbdv-remove {
-    display: inline;
     float: right;
 }
 
@@ -44,10 +51,6 @@ a.nav-item.wbdv-lesson-tab.active {
 
 a.nav-item.wbdv-module-list-item.active {
     font-weight: bold;
-}
-
-.nav-tabs .nav-item {
-    margin-bottom: auto;
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
@@ -78,6 +81,8 @@ a.nav-link:hover {
 
 ul.nav-tabs {
     border-bottom: 4px solid #cccccc;
+    height: 45px;
+    box-sizing: border-box;
 }
 
 .nav-tabs .nav-link {
@@ -113,7 +118,6 @@ li>i:hover, header>i:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a
 .wbdv-new-lesson {
     background-color: #d9d6dc;
     margin-left: 20px;
-    height: 50%;
 }
 
 li.wbdv-new-lesson>i {
@@ -124,6 +128,7 @@ li.wbdv-new-lesson>i {
 .modal-body {
     display: inline-flex;
     margin: auto;
+    width: 100%;
 }
 
 div.modal-body>i {
@@ -154,4 +159,8 @@ div.modal-body>i {
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     background-color: transparent;
     border: none;
+}
+
+#wbdv-lesson-tabs {
+    padding-bottom: 0px;
 }

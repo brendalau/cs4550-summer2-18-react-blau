@@ -1,0 +1,134 @@
+.wbdv-create-new {
+    float: left;
+    text-align: center;
+    margin: auto;
+    background-color: #d9d6dc;
+}
+
+.wbdv-create-new:hover {
+    cursor: pointer;
+}
+
+span {
+    display: inline-flex;
+    float: right;
+    text-align: center;
+}
+
+.wbdv-save {
+    margin: auto;
+    margin-left: 20px;
+    background-color: #d9d6dc;
+}
+
+.wbdv-save:hover {
+    cursor: pointer;
+}
+
+.wbdv-widget-remove {
+    margin-left: 10px;
+}
+
+.wbdv-widget-remove:hover {
+    cursor: pointer;
+}
+
+b {
+    padding: 10px;
+}
+
+.wbdv-arrow-up, .wbdv-arrow-down {
+    margin: auto;
+    margin-left: 10px;
+    background-color: #d9d6dc;
+    padding: 10px;
+}
+
+.wbdv-arrow-up:hover, .wbdv-arrow-down:hover {
+    cursor: pointer;
+}
+
+.wbdv-preview-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.wbdv-preview-switch input {display:none;}
+
+.wbdv-preview-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.wbdv-preview-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .wbdv-preview-slider {
+    background-color: #999999;
+}
+
+input:focus + .wbdv-preview-slider {
+    box-shadow: 0 0 1px #999999;
+}
+
+input:checked + .wbdv-preview-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.wbdv-widget-list {
+    padding-top: 50px;
+}
+
+h4.wbdv-widget-title {
+    margin-top: 5px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.wbdv-preview-div {
+    background-color: #ccc;
+}
+
+li.list-group-item {
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+i.disabled {
+    opacity: .2;
+}
+
+i.disabled:hover {
+    cursor: none;
+}
+
+a.wbdv-widget-link {
+    color: #563f46;
+    text-decoration: underline;
+}
+
+div.hide {
+    display: none;
+}
+

@@ -10,8 +10,8 @@ export default class LessonTab extends React.Component {
 
     render() {
         return(
-            <li className={'nav-item'}>
-                <NavLink className={'nav-item wbdv-lesson-tab'}
+            <li className="nav-item">
+                <NavLink className="nav-item wbdv-lesson-tab"
                          to={`/course/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lesson.id}`}>
                     {this.props.lesson.title}
                 </NavLink>
