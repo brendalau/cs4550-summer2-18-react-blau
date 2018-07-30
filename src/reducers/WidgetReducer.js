@@ -102,22 +102,20 @@ export const WidgetReducer = (state = initialState, action) => {
                 previewMode: !(state.previewMode)
             }
         case 'MOVE_UP':
-            let fromIndexUp = state.widgets.findIndex((widget) => widget.id === action.widgetId)
+            let fromIndexUp = state.widgets.indexOf(action.widget)
             let toIndexUp = fromIndexUp--
             state.widgets.splice(toIndexUp, 0, state.widgets.splice(fromIndexUp, 1)[0])
-            let updatedWidgetsUp = Object.assign(state.widgets)
             return{
                 ...state,
-                widgets: updatedWidgetsUp
+                widgets: state.widgets.splice(0)
             }
         case 'MOVE_DOWN':
-            let fromIndexDown = state.widgets.findIndex((widget) => widget.id === action.widgetId)
+            let fromIndexDown = state.widgets.indexOf(action.widget)
             let toIndexDown = fromIndexDown++
             state.widgets.splice(toIndexDown, 0, state.widgets.splice(fromIndexDown, 1)[0])
-            let updatedWidgetsDown = Object.assign(state.widgets)
             return{
                 ...state,
-                widgets: updatedWidgetsDown
+                widgets: state.widgets.splice(0)
             }
         default:
             return state

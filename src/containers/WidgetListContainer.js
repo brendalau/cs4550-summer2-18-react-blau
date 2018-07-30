@@ -59,13 +59,13 @@ const dispatcherToPropertyMapper = dispatch => (
         togglePreviewMode: () => dispatch({
                                             type: 'TOGGLE_PREVIEW_MODE'
                                           }),
-        moveUp: wid => dispatch({
+        moveUp: w => dispatch({
                                     type: 'MOVE_UP',
-                                    widgetId: wid
+                                    widget: w
                                 }),
-        moveDown: wid => dispatch({
+        moveDown: w => dispatch({
                                     type: 'MOVE_DOWN',
-                                    widgetId: wid
+                                    widget: w
                                 })
     }
 )

@@ -23,9 +23,9 @@ export const ImageWidget = ({widget, numWidgets, position, deleteWidget, updateW
                      <option value="LINK">Link</option>
                  </select>
                  <i className={`fa-lg fa fa-arrow-up wbdv-arrow-up ${position === 0 ? 'disabled' : ''}`}
-                    onClick={() => {moveUp(widget.id)}}></i>
+                    onClick={() => {moveUp(widget)}}></i>
                  <i className={`fa-lg fa fa-arrow-down wbdv-arrow-down ${position === numWidgets-1 ? 'disabled' : ''}`}
-                    onClick={() => {moveDown(widget.id)}}></i>
+                    onClick={() => {moveDown(widget)}}></i>
                  <i className="fa-lg fa fa-times wbdv-widget-remove"
                     onClick={() => {deleteWidget(widget.id)}}></i>
             </span>
