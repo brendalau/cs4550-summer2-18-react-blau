@@ -7,8 +7,8 @@ const stateToPropertyMapper = state => ({
     createModal: state.createModal,
     previewMode: state.previewMode})
 
-const LESSON_API_URL = 'https://cs4550-summer2-18-react-blau.herokuapp.com//api/lesson';
-const WIDGET_API_URL = 'https://cs4550-summer2-18-react-blau.herokuapp.com//api/widget';
+const LESSON_API_URL = 'https://cs4550-summer2-18-sprngbt-blau.herokuapp.com/api/lesson';
+const WIDGET_API_URL = 'https://cs4550-summer2-18-sprngbt-blau.herokuapp.com/api/widget';
 
 const dispatcherToPropertyMapper = dispatch => (
     {
