@@ -11,7 +11,7 @@ let initialState = {
     previewMode: false
 };
 
-const LESSON_API_URL = 'http://localhost:8080/api/lesson';
+const LESSON_API_URL = 'https://cs4550-summer2-18-react-blau.herokuapp.com//api/lesson';
 
 export const WidgetReducer = (state = initialState, action) => {
     switch (action.type) {
