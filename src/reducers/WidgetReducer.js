@@ -79,7 +79,8 @@ export const WidgetReducer = (state = initialState, action) => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(state.widgets)
+                body: JSON.stringify(state.widgets),
+                mode: 'no-cors'
             })
             return state
         case 'SHOW_CREATE_MODAL':
