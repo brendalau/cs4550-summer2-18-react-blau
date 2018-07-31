@@ -13,21 +13,21 @@ const WIDGET_API_URL = 'https://cs4550-summer2-18-sprngbt-blau.herokuapp.com/api
 const dispatcherToPropertyMapper = dispatch => (
     {
         findAllWidgets: () =>
-            fetch(WIDGET_API_URL, {mode: 'no-cors'})
+            fetch(WIDGET_API_URL)
                 .then(response => response.json())
                 .then(widgets => dispatch({
                                         type: 'FIND_ALL_WIDGETS',
                                         widgets: widgets
                                     })),
         findWidgetById: wid =>
-            fetch(WIDGET_API_URL + '/' + wid, {mode: 'no-cors'})
+            fetch(WIDGET_API_URL + '/' + wid)
                 .then(response => response.json())
                 .then(widget => dispatch({
                                         type: 'FIND_WIDGET_BY_ID',
                                         widget: widget
                                     })),
         findWidgetsByLesson: lid =>
-            fetch(LESSON_API_URL + '/' + lid + '/widget', {mode: 'no-cors'})
+            fetch(LESSON_API_URL + '/' + lid + '/widget')
                 .then(response => response.json())
                 .then(widgets => dispatch({
                                             type: 'FIND_WIDGETS_BY_LESSON',
