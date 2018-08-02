@@ -1,4 +1,5 @@
 Java Server: https://github.com/brendalau/cs4550-summer2-18-sprngbt-blau.git
+Heroku App: https://cs4550-summer2-18-sprngbt-blau.herokuapp.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
